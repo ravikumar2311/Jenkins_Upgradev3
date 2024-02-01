@@ -34,7 +34,7 @@ pipeline {
         stage('Build') {
             environment {
                 // VERSION_SUFFIX = '10.1.0'
-                def VERSION_SUFFIX = bat(script: '''
+                def VERSION_SUFFIX = ${bat(script: '''
                                                     @echo off
                                                     if "%RELEASE%" == "false" 
                                                     (
@@ -45,6 +45,7 @@ pipeline {
                                                         echo %RELEASE_VERSION%:%BUILD_NUMBER%
                                                     )
                                                  ''', returnStdout: true).trim()
+            }
             }
             steps {
                 echo "Building version: ${INT_VERSION} with suffix: ${VERSION_SUFFIX}"
