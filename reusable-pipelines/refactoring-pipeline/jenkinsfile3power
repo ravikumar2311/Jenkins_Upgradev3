@@ -33,7 +33,7 @@ pipeline {
 
         stage('Build') {
             environment {
-                VERSION_SUFFIX = "${RELEASE_VERSION}":"${BUILD_NUMBER}"
+                VERSION_SUFFIX = "ravi:7"
             }
             steps {
                 echo "Building version: ${INT_VERSION} with suffix: ${VERSION_SUFFIX}"
