@@ -32,11 +32,19 @@ pipeline {
                 echo 'Mention your Application Build Code here!!!'
                 dir('./java-tomcat-sample') {
                         bat '''
-                            mvn versions:set -DnewVersion=%VERSION%-SNAPSHOT
+                            mvn versions:set -DnewVersion=%VERSION%-SNAPSHOT 
+                        '''
+                }
+                dir('./java-tomcat-sample') {
+                        bat '''
                             mvn versions:update-child-modules
+                        '''
+                }
+                dir('./java-tomcat-sample') {
+                        bat '''
                             mvn clean package 
                         '''
-                    }
+                }
             }
         }
     }
