@@ -34,7 +34,7 @@ pipeline {
                         bat '''
                             mvn versions:set -DnewVersion=%VERSION%-SNAPSHOT
                             mvn versions:update-child-modules
-                            mvn clean package
+                            
                         '''
                     }
             }
