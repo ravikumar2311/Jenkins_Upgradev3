@@ -33,14 +33,14 @@ pipeline {
 
         stage('Build') {
             environment {
-                VERSION_SUFFIX = "latest:7"
+                VERSION_SUFFIX = '10.1.0'
             }
             steps {
                 echo "Building version: ${INT_VERSION} with suffix: ${VERSION_SUFFIX}"
                 echo 'Mention your Application Build Code here!!!'
                 dir('./java-tomcat-sample') {
                         bat '''
-                            mvn versions:set -DnewVersion="%VERSION_SUFFIX%-SNAPSHOT"
+                            mvn versions:set -DnewVersion=%VERSION_SUFFIX%-SNAPSHOT
                         '''
                 }
                 dir('./java-tomcat-sample') {
