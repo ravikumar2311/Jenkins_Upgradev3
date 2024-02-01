@@ -34,8 +34,7 @@ pipeline {
         stage('Build') {
             environment {
                 // VERSION_SUFFIX = '10.1.0'
-                def VERSION_SUFFIX = ${bat(script: '''
-                                                    @echo off
+                def VERSION_SUFFIX = ${bat(script:'
                                                     if "%RELEASE%" == "false" 
                                                     (
                                                         echo %INT_VERSION%ci:%BUILD_NUMBER%
@@ -44,7 +43,7 @@ pipeline {
                                                     (
                                                         echo %RELEASE_VERSION%:%BUILD_NUMBER%
                                                     )
-                                                 ''', returnStdout: true).trim()
+                                                 ', returnStdout: true).trim()
             }
             }
             steps {
