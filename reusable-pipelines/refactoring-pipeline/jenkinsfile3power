@@ -46,6 +46,10 @@ pipeline {
                 dir('./java-tomcat-sample') {
                         bat '''
                             mvn versions:update-child-modules
+                        '''
+                }
+                dir('./java-tomcat-sample') {
+                        bat '''
                             mvn clean package
                         '''
                 }
