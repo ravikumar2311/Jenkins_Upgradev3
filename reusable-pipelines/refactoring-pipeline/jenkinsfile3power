@@ -33,7 +33,7 @@ pipeline {
 
         stage('Build') {
             environment {
-                VERSION_SUFFIX = "${bat(script: 'if "%RELEASE%"=="false" ( echo "%INT_VERSION%":"%BUILD_NUMBER%" ) else ( echo "%RELEASE_VERSION%":"%BUILD_NUMBER%" )', returnStdout: true)}"
+                VERSION_SUFFIX = "${BUILD_NUMBER}"
             }
             steps {
                 echo "Building version: ${INT_VERSION} with suffix: ${VERSION_SUFFIX}"
