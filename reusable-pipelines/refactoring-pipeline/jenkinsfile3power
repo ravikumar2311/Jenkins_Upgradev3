@@ -37,9 +37,9 @@ pipeline {
                 def VERSION_SUFFIX = "${bat(script: '''
                                        @echo off
                                        if "%RELEASE%" == "false" (
-                                           echo %INT_VERSION%ci:%BUILD_NUMBER%
+                                           echo %INT_VERSION%.%BUILD_NUMBER%
                                        ) else (
-                                           echo %RELEASE_VERSION%:%BUILD_NUMBER%
+                                           echo %RELEASE_VERSION%.%BUILD_NUMBER%
                                        )
                                        ''', returnStdout: true).trim()}"
             }
