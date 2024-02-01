@@ -36,7 +36,7 @@ pipeline {
                 VERSION_SUFFIX = "${bat(script:'if "%RELEASE%"=="false" ( echo -n "%INT_VERSION%"ci:"%BUILD_NUMBER%") else ( echo -n "%RELEASE_VERSION%":"%BUILD_NUMBER%" )', returnStdout: true)}"
             }
             steps {
-                echo "Building version: ${INT_VERSION} with suffix: ${VERSION_SUFFIX%}"
+                echo "Building version: ${INT_VERSION} with suffix: ${VERSION_SUFFIX}"
                 echo 'Mention your Application Build Code here!!!'
                 dir('./java-tomcat-sample') {
                         bat '''
