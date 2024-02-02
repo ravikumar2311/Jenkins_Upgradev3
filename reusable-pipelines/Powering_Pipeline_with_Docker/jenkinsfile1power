@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             image 'maven:latest'    
-            args '-v "${HOME}"\workspace\U_jenkinsfile1DockerAgent'
+            args '-v "C:\ProgramData\Jenkins\.jenkins\workspace\dockerimage'
         }
     }
     
