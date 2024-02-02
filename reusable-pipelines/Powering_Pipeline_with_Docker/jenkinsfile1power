@@ -3,7 +3,7 @@ pipeline {
         docker {
             image 'maven:latest'
             args '-u 0'
-            
+            workingDir "${WORKSPACE}"
         }
     }
     
