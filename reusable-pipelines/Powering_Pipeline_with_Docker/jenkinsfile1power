@@ -1,9 +1,11 @@
 pipeline {
     agent {
         docker {
+           dir('./workspace/U_jenkinsfile1DockerAgent') {
             image 'maven:latest'
             args '-u 0'
-            workingDir "${WORKSPACE}"
+          }
+            
         }
     }
     
