@@ -38,7 +38,10 @@ pipeline {
                 dir('./java-tomcat-sample') {
                     packageApplication()
                 }
-                
+
+                packageApplicationcmd()
+
+                /*
                 dir('./java-tomcat-sample') {
                         bat '''
                             mvn versions:update-child-modules
@@ -49,7 +52,7 @@ pipeline {
                             mvn clean package
                         '''
                 }
-                
+                */
             }
         }
 
@@ -91,6 +94,11 @@ void auditTools() {
 void packageApplication() {
     bat '''
         mvn versions:set -DnewVersion="%VERSION_SUFFIX%-SNAPSHOT"
+    '''
+}
+
+void packageApplicationcmd() {
+    bat '''
         mvn versions:update-child-modules
         mvn clean package
     '''
