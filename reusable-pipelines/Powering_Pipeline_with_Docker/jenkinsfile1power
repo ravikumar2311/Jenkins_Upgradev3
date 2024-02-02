@@ -1,12 +1,12 @@
 pipeline {
     agent {
         docker {
-            image 'maven:latest'            
+            image 'maven:latest'    
+            args '-v "${HOME}"\workspace\U_jenkinsfile1DockerAgent'
         }
     }
     
     environment {
-      HOME="."
       VERSION = '0.1.0'
       RELEASE_VERSION = 'R.2'
     }
