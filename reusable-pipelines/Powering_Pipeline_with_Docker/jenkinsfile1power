@@ -1,9 +1,10 @@
 pipeline {
     agent {
         docker {
+            args '-v C:/ProgramData/Jenkins/.jenkins/workspace/U_jenkinsfile1DockerAgent:/workspace'
             image 'maven:latest'
             args '-u 0'
-            args '-v C:/ProgramData/Jenkins/.jenkins/workspace/U_jenkinsfile1DockerAgent:/workspace'
+            
         }
     }
     
