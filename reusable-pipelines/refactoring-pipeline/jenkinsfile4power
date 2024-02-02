@@ -35,13 +35,14 @@ pipeline {
             steps {
                 echo "Building version: ${INT_VERSION} with suffix: ${VERSION_SUFFIX}"
                 echo 'Mention your Application Build Code here!!!'
+                packageApplication()
+                /*
                 dir('./java-tomcat-sample') {
                     packageApplication()
                 }
 
                 packageApplicationcmd()
 
-                /*
                 dir('./java-tomcat-sample') {
                         bat '''
                             mvn versions:update-child-modules
@@ -93,7 +94,10 @@ void auditTools() {
 
 void packageApplication() {
     bat '''
+        cd ./java-tomcat-sample
         mvn versions:set -DnewVersion="%VERSION_SUFFIX%-SNAPSHOT"
+        mvn versions:update-child-modules
+        mvn clean package
     '''
 }
 
