@@ -1,8 +1,8 @@
 pipeline {
     agent {
         docker {
-            args '-v C:/ProgramData/Jenkins/.jenkins/workspace/U_jenkinsfile1DockerAgent:/workspace'
-            image 'maven:latest'
+            docker pull maven:latest
+            docker run --name mavenlatest -d maven sleep 60
             args '-u 0'
             
         }
