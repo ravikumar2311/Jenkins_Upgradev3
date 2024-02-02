@@ -36,6 +36,7 @@ pipeline {
                 echo "Building version: ${INT_VERSION} with suffix: ${VERSION_SUFFIX}"
                 echo 'Mention your Application Build Code here!!!'
                 packageApplication()
+                packageApplicationcmd()
                 /*
                 dir('./java-tomcat-sample') {
                     packageApplication()
