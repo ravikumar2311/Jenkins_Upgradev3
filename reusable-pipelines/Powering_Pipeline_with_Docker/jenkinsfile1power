@@ -1,8 +1,7 @@
 pipeline {
     agent {
         docker {
-            docker pull 'maven:latest'
-            docker run --name mavenlatest -d maven sleep 60
+            image 'maven:latest'
             args '-u 0'
             
         }
